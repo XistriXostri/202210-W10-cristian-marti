@@ -1,7 +1,10 @@
 {
-    "name": "week-10",
+    "name": "202210-w10-miguelpgomez",
     "version": "0.1.0",
     "private": true,
+    "prettier": {
+        "singleQuote": true
+    },
     "dependencies": {
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^13.4.0",
@@ -12,16 +15,18 @@
         "@types/react-dom": "^18.0.9",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "react-router-dom": "^6.4.5",
         "react-scripts": "5.0.1",
+        "sass": "^1.56.2",
         "typescript": "^4.9.4",
         "web-vitals": "^2.1.4"
     },
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "test": "react-scripts test --coverage --watchAll",
+        "test:prod": "react-scripts test --coverage --watchAll=false",
+        "eject": "react-scripts eject",
+        "prepare": "husky install"
     },
     "eslintConfig": {
         "extends": [
@@ -49,9 +54,6 @@
             "<rootDir>/src/tools/*"
         ]
     },
-    "prettier": {
-        "singleQuote": true
-    },
     "browserslist": {
         "production": [
             ">0.2%",
@@ -65,8 +67,8 @@
         ]
     },
     "devDependencies": {
-        "@typescript-eslint/eslint-plugin": "^5.46.1",
-        "@typescript-eslint/parser": "^5.46.1",
+        "@typescript-eslint/eslint-plugin": "^5.46.0",
+        "@typescript-eslint/parser": "^5.46.0",
         "eslint-config-prettier": "^8.5.0",
         "husky": "^8.0.2"
     }
