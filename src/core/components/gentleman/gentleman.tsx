@@ -14,7 +14,7 @@ export function Gentleman({
         <main className="main">
             <ul className="gentlemen">
                 {gentlemansArray.map((gentleman) => (
-                    <li className="gentleman">
+                    <li className="gentleman" key={gentleman.id}>
                         <div className="gentleman__avatar-container">
                             <img
                                 className="gentleman__avatar"
@@ -51,7 +51,11 @@ export function Gentleman({
                             </ul>
                         </div>
                         <Button
-                            className="icon gentleman__icon fas fa-check"
+                            className={
+                                gentleman.selected
+                                    ? 'icon gentleman__icon fas fa-check gentleman__icon--selected'
+                                    : 'icon gentleman__icon fas fa-check'
+                            }
                             handleClick={handleSelect}
                             id={gentleman.id}
                         ></Button>
