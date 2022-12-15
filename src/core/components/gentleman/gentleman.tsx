@@ -1,10 +1,19 @@
-import { gentlemans } from '../../mock/gentlemans';
+import { gentlemansType } from '../../types/gentlemanType';
+import { Button } from '../button/button';
 
-export function Gentleman() {
+export function Gentleman({
+    gentlemansArray,
+    handleDelete,
+    handleSelect,
+}: {
+    gentlemansArray: gentlemansType;
+    handleDelete: (id: number) => void;
+    handleSelect: (id: number) => void;
+}) {
     return (
         <main className="main">
             <ul className="gentlemen">
-                {gentlemans.map((gentleman) => (
+                {gentlemansArray.map((gentleman) => (
                     <li className="gentleman">
                         <div className="gentleman__avatar-container">
                             <img
@@ -41,8 +50,16 @@ export function Gentleman() {
                                 </li>
                             </ul>
                         </div>
-                        <i className="icon gentleman__icon fas fa-check"></i>
-                        <i className="icon gentleman__icon gentleman__icon--delete fas fa-times"></i>
+                        <Button
+                            className="icon gentleman__icon fas fa-check"
+                            handleClick={handleSelect}
+                            id={gentleman.id}
+                        ></Button>
+                        <Button
+                            className="icon gentleman__icon gentleman__icon--delete fas fa-times"
+                            handleClick={handleDelete}
+                            id={gentleman.id}
+                        ></Button>
                     </li>
                 ))}
             </ul>
